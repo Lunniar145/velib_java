@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="application.VelibController">
+
+    <!-- TOP : Filtres avec étiquettes -->
+    <top>
+        <VBox spacing="5">
+            <HBox spacing="50" alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="10" right="10" bottom="5" left="10"/>
+                </padding>
+
+                <VBox spacing="2">
+                    <Label text="Départements" />
+                    <ComboBox fx:id="departementComboBox" promptText="Département"/>
+                </VBox>
+
+                <VBox spacing="2">
+                    <Label text="Arrondissements (Paris)" />
+                    <ComboBox fx:id="arrondissementComboBox" promptText="Arrondissement"/>
+                </VBox>
+
+                <VBox spacing="2">
+                    <Label text="Type de station" />
+                    <ComboBox fx:id="typeComboBox" promptText="Type"/>
+                </VBox>
+
+                <Button text="Filtrer" onAction="#onFilterClicked"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER : Tableau -->
+    <center>
+        <TableView fx:id="stationTable" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colNumero" text="Numéro" prefWidth="80"/>
+                <TableColumn fx:id="colNom" text="Nom" prefWidth="200"/>
+                <TableColumn fx:id="colStatut" text="Statut" prefWidth="100"/>
+                <TableColumn fx:id="colPaiement" text="Borne Paiement" prefWidth="120"/>
+                <TableColumn fx:id="colCommune" text="Commune" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- BOTTOM : Détails -->
+    <bottom>
+        <VBox spacing="5" style="-fx-background-color: #f4f4f4;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label fx:id="labelTitre" text="Détails de la station sélectionnée :" style="-fx-font-weight: bold;"/>
+            <Label fx:id="labelCapacite" text="Capacité: "/>
+            <Label fx:id="labelVelosDisponibles" text="Vélos disponibles: "/>
+            <Label fx:id="labelBornesDisponibles" text="Bornes disponibles: "/>
+        </VBox>
+    </bottom>
+
+</BorderPane>
