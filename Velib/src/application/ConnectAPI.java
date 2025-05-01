@@ -46,17 +46,19 @@ public class ConnectAPI {
                 int velos = fields.optInt("numbikesavailable", 0);
                 int bornes = fields.optInt("numdocksavailable", 0);
                 String commune = fields.optString("nom_arrondissement_communes", "Inconnu");
+
                 String arrondissement = "";
                 if (numero.length() >= 2 && commune.equalsIgnoreCase("Paris")) {
                     try {
                         int arr = Integer.parseInt(numero.substring(0, 2));
                         if (arr >= 1 && arr <= 20) {
-                            arrondissement = String.valueOf(arr);
+                            arrondissement = String.valueOf(arr); // "1", "2", ..., "20"
                         }
                     } catch (NumberFormatException e) {
                         arrondissement = "";
                     }
                 }
+
 
                 // Département par commune
                 String departement;
